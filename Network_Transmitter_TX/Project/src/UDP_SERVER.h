@@ -15,7 +15,7 @@
 #define BOARD_IP  			 	10,12,225,78   		//开发板ip 
 #define BOARD_NETMASK   	 	255,255,255,0   		//开发板子网掩码
 #define BOARD_WG		   	 	10,12,225,1   			//开发板子网关
-#define BOARD_MAC_ADDR      	0xFA,0x8E,0x58,0x6D,0x83,0xBA				//开发板MAC地址
+#define BOARD_MAC_ADDR      	0xFA,0x8E,0x58,0x6D,0x82,0xBA				//开发板MAC地址
 
 //#define BOARD_IP  			 	192,168,1,252   		//开发板ip 
 //#define BOARD_NETMASK   	 	255,255,255,0   		//开发板子网掩码

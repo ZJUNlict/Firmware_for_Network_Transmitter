@@ -35,7 +35,12 @@ int main(void)
 	LED3_ON;
 	TX_Mode();
 	
-	while(1);
+	while(1){
+//		if (ETH_CheckFrameReceived()){
+//		LwIP_Pkt_Handle();
+//		}
+//	LwIP_Periodic_Handle(LocalTime);
+	}
 	
 	return 0;
 }

@@ -15,6 +15,7 @@ u16_t Port;
 void udp_server_recv(void *arg, struct udp_pcb *pcb, struct pbuf *p,struct ip_addr *addr, u16_t port)
 {
 	int i=0;
+	int Configuration_Delay=0;
 //	struct ip_addr destAddr = *addr; /* 获取远程主机 IP地址 */
 	struct pbuf *p_temp = p;
 	unsigned char* p2401;
@@ -44,6 +45,10 @@ void udp_server_recv(void *arg, struct udp_pcb *pcb, struct pbuf *p,struct ip_ad
 					bandwidth = 0x0F;
 				if(p2401[3]==0x01){
 					TX_Mode();
+					Configuration_Delay=10000;
+					while (Configuration_Delay>=0){
+						Configuration_Delay--;
+					}
 					LED_Blink();
 				}
 			}
@@ -61,14 +66,17 @@ void udp_server_recv(void *arg, struct udp_pcb *pcb, struct pbuf *p,struct ip_ad
 					package_success=0;
 				}
 			}
+			else{
+					LED3_ON;					//NRF24L01P Transmit Fail
+			}
 		}
 	}
 	else {
 		LED2_ON;
 	}
 		p_temp = p_temp->next;
-		
 	}
+	LED4_ON;
 	pbuf_free(p); 						/* 释放该UDP段 */
 }
 
